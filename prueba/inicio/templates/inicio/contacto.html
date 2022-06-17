@@ -14,27 +14,37 @@
     {%endblock%}
     {%block des%}Mensaje{%endblock%}
 
+	
+	{%block encabezado%}
+        
+    
+	<!--Encabezdo -->
+	<div class="page-header">
+		<div class="page-title">
+
+			<h3>Contacto
+			<small>Ingresa un mensaje</small></h3>
+		</div>
+
+	</div>
+	<!-- /Encabezado-->
+	
+	{%endblock%}	
+
+
+
+
     {% block contenido %}
         <!-- <h2>Contactooo<h2>
         <p>Nombre: <input type="text" name="nombre"></p>
         <p>Mensaje: </p><p><textarea cols="50" rows="10"></textarea></p>
         <p><input type="Button" name="enviar" value="enviar"/></p> -->
 
-        <!-- Contenido Principal-->
-	 	<div class="page-content">
+        <!-- Contenido Principal
+	 	<div class="page-content"> -->
 
-
-			<!--Encabezdo -->
-			<div class="page-header">
-				<div class="page-title">
-					<h3>Contacto
-				    <small>Ingresa un mensaje</small></h3>
-				</div>
-
-				
-				
-			</div>
-			<!-- /Encabezado-->
+		
+			
 
 			<!-- Formulario -->
 			<form class="form-horizontal" action="#" role="form">
@@ -63,7 +73,8 @@
 				</div>
 			</form>
 		<!-- Fin del Formulario -->
-		</div>
-		<!-- /Contenido Principal-->
+
+		<!-- </div>
+		/Contenido Principal -->
 
     {% endblock %}

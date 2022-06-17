@@ -15,15 +15,12 @@
     {%block loc%}
         Principal
     {%endblock%}
+
     {%block des%}DSM{%endblock%}
 
-    {% block contenido %}
 
-        <!-- Contenido Principal-->
-	 	<div class="page-content">
-
-
-			<!--Encabezdo -->
+    {%block encabezado%}
+        <!--Encabezdo -->
 			<div class="page-header">
 				<div class="page-title">
 					<h3>Alumnos
@@ -33,10 +30,11 @@
 				
 			</div>
 			<!-- /Encabezado-->
+    {%endblock%}
 
 
-		</div>
-		<!-- /Contenido Principal-->
+    {% block contenido %}
+
 
 
 

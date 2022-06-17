@@ -91,10 +91,45 @@
 
 	</div>
 
+    <!-- Contenido Principal-->
+	<div class="page-content">
+
       <!-- Contenido -->
+      {% block encabezado %}
+
+
+      {% endblock %}
+
+       <!--Barra de Navegacion-->
+     <div class="breadcrumb-line">
+        <ul class="breadcrumb">
+  
+            <a href="{%url 'Principal'%}">
+                {% if request.path == '/' %}
+                    Principal
+                {% else %}
+                    Principal{{request.path}}
+                {%endif%}
+            </a>
+            <!-- {{request.path}} -->
+        </ul>
+    </div>
+    <!--/Barra de Navegacion-->
+       
+
       {% block contenido %}
 
       {% endblock %}
+
+      
+     
+
+
+        
+
+
+    </div>
+    <!-- /Contenido Principal-->
 </body>
 </html>
 
