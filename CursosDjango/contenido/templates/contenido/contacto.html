@@ -1,0 +1,25 @@
+
+
+{% extends "contenido/encabezado.html" %}
+{%block titulo%}Contacto {%endblock %}
+
+{%block contenido%}
+    
+    <h2>Cursos<h2>
+        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>mail: <input type="mail" name="nombre"></p>
+        <p>Curso</p>
+        <select name="Curso">
+    
+            <option>Bases de datos</option>
+            
+            <option>Pseudo</option>
+            
+            <option>PHP</option>
+            
+            </select>
+        <p>Comentario: </p><p><textarea cols="50" rows="10"></textarea></p>
+        <p><input type="Button" name="enviar" value="enviar"/></p>
+    
+
+{%endblock %}
