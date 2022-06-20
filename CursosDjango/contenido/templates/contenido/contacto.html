@@ -1,99 +1,61 @@
-
-
 {% extends "contenido/encabezado.html" %}
-{%block titulo%}Contacto {%endblock %}
+{%block titulo%}Contacto{%endblock %}
 
 {%block contenido%}
-    
 
-    <br>
-    <br>
-    <br>
-    <br>
+         <!-- Contact section-->
+         <section id="contact">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Contacto</h2>
+                        <p class="lead">Dejanos tu mensaje por aquí y dinos que curso te interesó más</p>
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nombre</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Apellido paterno</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Apellido materno</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Correo</label>
+                              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                              <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu correo.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect2">Cursos</label>
+                                <select multiple class="form-control" id="exampleFormControlSelect2">
+                                  <option>PHP</option>
+                                  <option>Python</option>
+                                  <option>JS</option>
+                                  <option>Angular</option>
+                                  <option>SQL</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Mensaje</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                              </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                          </form>
 
-        <!-- Contact Section-->
-
-        <section class="page-section" id="contact">
-            <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contacto</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <!-- Contact Section Form-->
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-xl-7">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Nombre completo</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">El nombre es requerido</div>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">El número telefónico es requerido.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Correo electrónico</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Numero de teléfono</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">El numero de telefono es requerido.</div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                
-                                <select class="form-control" id="name" name="Curso" type="text" placeholder="Ingresa un curso" data-sb-validations="required" >
-                                    <option>Bases de datos</option>
-                                    <option>Pseudo</option>
-                                    <option>PHP</option>
-                                    </select>
-                                {% comment %} <label for="Curso">Curso</label> {% endcomment %}
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Comentario</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">El comentario es requerido.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Datos enviados con éxito</div>
-                                    ¡Excelente!
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">
-
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error al enviar el mensaje</div></div>
-                            <!-- Submit Button-->
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Enviar</button>
-                        </form>
                     </div>
+                    
+                    
+
+
+                
                 </div>
             </div>
         </section>
+
+        
     
 
 {%endblock %}
