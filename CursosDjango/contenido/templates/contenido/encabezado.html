@@ -33,10 +33,37 @@
         <br>
         <br>
         <br>
+        <br> 
         <br>
+             <!-- About section-->
+        <section id="about">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2><!--Barra de Navegacion-->
+                            <div class="breadcrumb-line">
+                                <ul class="breadcrumb">
+                        
+                                    <a href="{%url 'Principal'%}">
+                                        {% if request.path == '/' %}
+                                            Principal
+                                        {% else %}
+                                            Principal{{request.path}}
+                                        {%endif%}
+                                    </a>
+                                    <!-- {{request.path}} -->
+                                </ul>
+                            </div>
+                            <!--/Barra de Navegacion--></h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+          
         {%block contenido%}
-
-
+        
+            
         {%endblock %}
 
         

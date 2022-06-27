@@ -5,14 +5,29 @@
 
 {%block contenido%}
     
-    <!-- Header-->
+         <!-- About section-->
+         <section id="about">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Hola Django</h2>
+                        <p class="lead">Bienvenido a Django</p>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    {% comment %} <!-- Header-->
+
     <header class="bg-primary bg-gradient text-white">
         <div class="container px-4 text-center">
             <h1 class="fw-bolder">Hola Django</h1>
             <p class="lead">Este sitio hace referencia a nuestras practicas de clase sobre Django</p>
             <a class="btn btn-lg btn-light" href="#about">Comencemos</a>
         </div>
-    </header>
+    </header> {% endcomment %}
      
         
 {%endblock %}

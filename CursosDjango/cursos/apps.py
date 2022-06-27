@@ -1,8 +1,7 @@
 from django.apps import AppConfig
 
 
-class RegistrosConfig(AppConfig):
+class CursosConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'registros'
-    verbose_name= 'Módulos'
-    
+    name = 'cursos'
+    verbose_name='CONVOCATORIAS'
