@@ -29,15 +29,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-center">
-                        <img src="" alt="" class="img-media">
-                        </td>
-                        <td class="muted">Desarrollo Web con PHP</td>
-                        <td class="muted">Aquí aprenderás acerca del desarrollo Backend</td>
-                        <td class="muted">72</td>
-                        <td class="muted">Carlos Lopez</td>
-                    </tr>
+                    {% for curso in cursos %}
+                        <tr>
+                            <td class="text-center">
+                                <img src="{{curso.imagen.url}}" width="100" height="100" alt="" class="img-media">
+                            </td>
+                            <td class="muted">{{curso.nombre}}</td>
+                            <td class="muted">{{curso.descripcion}}</td>
+                            <td class="muted">{{curso.duracion_hrs}}</td>
+                            <td class="muted">{{curso.instructor}}</td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         

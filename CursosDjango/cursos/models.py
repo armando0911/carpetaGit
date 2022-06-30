@@ -1,3 +1,4 @@
+from turtle import ondrag, update
 from django.db import models
 
 # Create your models here.
@@ -7,6 +8,8 @@ class Cursos(models.Model): #Define la estructura de nuestra tabla
     descripcion = models.TextField() #Texto largo
     duracion_hrs = models.PositiveIntegerField(verbose_name="Horas de duración")
     instructor = models.TextField(max_length=30)
+    imagen = models.ImageField(null=True,upload_to="fotos",verbose_name="Fotografía")
+    #agregamos el atributo
     created = models.DateTimeField(auto_now_add=True) #Fecha y tiempo
     updated = models.DateTimeField(auto_now_add=True)
 

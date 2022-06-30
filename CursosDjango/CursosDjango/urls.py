@@ -16,11 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from contenido import views
+from django.conf import settings
+#permite acceder a las variables MEDIA_URL y MEDIA_ROOT que
+#almacenan la ubicación de nuestras imagenes 
+from cursos import views as views_cursos
+#Importamos la nueva vista de app registros para
+#poder asignar las rutas de acceso a sus vistas
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.principal, name="Principal"),
+    
+    path('',views_cursos.cursos, name="Principal"),
+    #Indicamos que ahora la ruta de principal.html se
+    #encuentra en la view de registros
     path('cursos/',views.cursos, name="Cursos"),
     path('contacto/',views.contacto, name="Contacto"),
     
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
