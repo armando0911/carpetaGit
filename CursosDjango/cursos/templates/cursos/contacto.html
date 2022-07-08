@@ -1,0 +1,54 @@
+{% extends "contenido/encabezado.html" %}
+{%block titulo%}Contacto{%endblock %}
+{%block section%}contact{%endblock %}
+{%block contenido%}
+
+         <!-- Contact section-->
+            <div class="container px-2">
+                <div class="row gx-4 justify-content">
+                    <div class="col-lg-8">
+                        <h2>Contacto</h2>
+                        <p class="lead">Dejanos tu mensaje por aquí y dinos que curso te interesó más</p>
+                        <form action="{% url 'Registrar'%}" method="POST" role="form">
+                          {%csrf_token%}
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Nombre</label>
+                                <input name="nombre_u" type="text" class="form-control"  placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Apellido paterno</label>
+                                <input name="apellido_p" type="text" class="form-control"  placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Apellido materno</label>
+                                <input name="apellido_m" type="text" class="form-control"  placeholder="">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">Correo</label>
+                              <input name="correo" type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Email">
+                              <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu correo.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect2">Cursos</label>
+                                <select name="curso_u">
+                                  {% for curso in cursos %}
+                                    <option name="curso_u">{{curso.nombre}}</option>
+                                  {% endfor %}
+                                </select>
+                            </div>
+                              <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Mensaje</label>
+                                <textarea name="mensaje_u" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                              </div>
+                            {% comment %} <button type="submit" class="btn btn-primary">Enviar</button> {% endcomment %}
+                            <div class="form-actions text-right">
+                              <input type="submit" value="Enviar" class="btn btn-primary">
+                            </div>
+                          </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+{%endblock %}

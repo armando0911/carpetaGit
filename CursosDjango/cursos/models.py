@@ -1,5 +1,7 @@
 from turtle import ondrag, update
 from django.db import models
+from tabnanny import verbose
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Cursos(models.Model): #Define la estructura de nuestra tabla
@@ -23,4 +25,34 @@ class Cursos(models.Model): #Define la estructura de nuestra tabla
         return self.nombre
         #Indica que se mostrára el nombre como valor en la tabla
 
-    
+class Actividad(models.Model):
+    id_act=models.AutoField(primary_key=True,verbose_name="Clave")
+    curso = models.ForeignKey(Cursos,on_delete=models.CASCADE,verbose_name="Curso")
+    descripcion_act = RichTextField(verbose_name="Actividad")
+    created=models.DateTimeField(auto_now_add=True,verbose_name="Registrado")
+    # coment = RichTextField(verbose_name="Comentario")
+    class Meta:
+        verbose_name = "Actividad"
+        verbose_name_plural = "Actividades"
+        ordering = ["-created"]
+
+    def __str__(self):
+        return self.descripcion_act
+
+class Registro(models.Model):
+    id_registro = models.AutoField(primary_key=True,verbose_name="Clave")
+    nombre_u = models.TextField(verbose_name="Nombre")
+    apellido_p = models.TextField(verbose_name="Apellido paterno")
+    apellido_m = models.TextField(verbose_name="Apellido materno")
+    correo = models.CharField(max_length=70, verbose_name="Correo")
+    curso_u = models.ForeignKey(Cursos,on_delete=models.CASCADE,verbose_name="Curso")
+    mensaje_u = models.TextField() #Texto largo
+    created =models.DateTimeField(auto_now_add=True,verbose_name="Registrado")
+    class Meta:
+        verbose_name = "Registro"
+        verbose_name_plural = "Registros"
+        ordering = ["-created"]
+        def __str__(self):
+            return self.mensaje_u
+            #Indica que se mostrára el mensaje como valor en la tabla
+

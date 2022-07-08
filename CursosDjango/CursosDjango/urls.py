@@ -30,9 +30,11 @@ urlpatterns = [
     path('',views_cursos.cursos, name="Principal"),
     #Indicamos que ahora la ruta de principal.html se
     #encuentra en la view de registros
+    # path('contacto/',views.contacto, name="Contacto"),
+    path('contacto/',views_cursos.contacto,name="Contacto"),
+    path('registrar/',views_cursos.registrar,name="Registrar"),
     path('cursos/',views.cursos, name="Cursos"),
-    path('contacto/',views.contacto, name="Contacto"),
-    
+
 ]
 
 if settings.DEBUG:

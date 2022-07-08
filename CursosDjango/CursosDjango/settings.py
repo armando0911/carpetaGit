@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from inspect import BlockFinder
 from pathlib import Path
 import os
 ##importar os importante 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'contenido',
     'cursos.apps.CursosConfig',
+    'ckeditor',
 
 ]
 
@@ -130,3 +132,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Archivos fotográficos
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+##CKEDITOR ver packete para ver los elementos doc
+
+CKEDITOR_CONFIGS ={
+    'default':{'toolbar':'Custom',
+        'toolbar_Custom':[
+            ['Bold','Subscript','Superscript','Italic','Underline','Strikethrough'],
+            ['NumberedList','BulletedList','-', 'JustifyLeft','JustifyCenter,JustifyRigth','JustifyBlock'],
+            ['link','UnLink','Blockquote'],
+        ]
+    }
+}

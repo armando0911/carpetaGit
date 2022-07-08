@@ -1,0 +1,65 @@
+<!-- <a href="/">Home</a>
+<a href="/formulario">Registrar</a>
+<a href="/contacto">Contactanos</a> -->
+
+{% extends "inicio/encabezado.html" %}
+{% block titulo %}
+    Comentarios
+{% endblock %}
+
+{%block imagen%}
+    {%load static%}
+    {%static 'images/home.png'%}
+{% endblock%}
+
+{%block loc%}
+    Comentarios
+{%endblock%}
+
+{%block des%}Contacto{%endblock%}
+
+
+{%block encabezado%}
+    <!--Encabezdo -->
+        <div class="page-header">
+            <div class="page-title">
+                <h3>Comentarios
+                <small>Lista de comentarios</small></h3>
+            </div>
+
+            
+        </div>
+        <!-- /Encabezado-->
+{%endblock%}
+
+
+{% block contenido %}
+        <!-- Tabla de Alumnos -->
+        <table class="table table-bordered tablestriped">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Mensaje</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for comentario in comentarios %}
+                    <tr>
+                        <td class="text-semibold">{{comentario.usuario}}</td>
+                        <td class="muted">{{comentario.mensaje}}</td>
+                        <td class="text-center">
+                            <a href="{%url 'Editar' comentario.id%}">Editar</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="{%url 'Eliminar' comentario.id%}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+{% endblock %}
+

@@ -31,9 +31,15 @@ urlpatterns = [
     path('',views_registros.registros, name="Principal"),
     #Indicamos que ahora la ruta de principal.html se
     #encuentra en la view de registros
-    path('contacto/',views.contacto, name="Contacto"),
+    #path('contacto/',views.contacto, name="Contacto"),
+    path('contacto/',views_registros.contacto,name="Contacto"),
     path('formulario/',views.formulario, name="Formulario"),
+    path('comentarios',views_registros.verComentarioContacto, name="Comentario"),
+    path('registrar/',views_registros.registrar,name="Registrar"),
     path('ejemplo/',views.ejemplo, name="Ejemplo"),
+    path('eliminarComentario/<int:id>/',views_registros.eliminarComentarioContacto,name='Eliminar'),
+    path('editarComentario/<int:id>/',views_registros.verFormEditarComentario,name='Editar'),
+    
 
 
 ]
@@ -42,3 +48,5 @@ if settings.DEBUG:
     from django.conf.urls.static import static
     urlpatterns += static(settings.MEDIA_URL,
         document_root=settings.MEDIA_ROOT)
+
+
