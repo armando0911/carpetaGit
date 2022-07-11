@@ -1,18 +1,18 @@
 
     {% extends "inicio/encabezado.html" %}
     {% block titulo %}
-        Editar Comentario
+        Editar Alumno
     {% endblock %}
 
     {%block imagen%}
         {%load static%}
-        {%static 'images/contacto.png'%}
+        {%static 'images/registro.png'%}
     {% endblock%}
 
     {%block loc%}
-        Contacto
+        Alumno
     {%endblock%}
-    {%block des%}Comentario{%endblock%}
+    {%block des%}Editando{%endblock%}
 
 	
 	{%block encabezado%}
@@ -22,8 +22,8 @@
 	<div class="page-header">
 		<div class="page-title">
 
-			<h3>Contacto
-			<small>Editar comentario</small></h3>
+			<h3>Alumno
+			<small>Editar alumno</small></h3>
 		</div>
 
 	</div>
@@ -45,22 +45,34 @@
 
 			<!-- Formulario -->
 			{% comment %} {% url 'editarComentario'%} {% endcomment %}
-			<form class="form-horizontal" action="{% url 'editarComentario' comentario.id%}" method="POST" role="form">
+			<form class="form-horizontal" action="{% url 'editarAlumno' alumno.id_a%}" method="POST" role="form">
 				{%csrf_token%}
 	            <div class="panel panel-default">
 	                <div class="panel-body">
 						
 				        <div class="form-group">
-				            <label class="col-sm-2 control-label text-right">Nombre:</label>
+				            <label class="col-sm-2 control-label text-right">Matricula:</label>
 				            <div class="col-sm-10">
-				            	<input value={{comentario.usuario}} name="usuario" type="text" class="form-control">
+				            	<input value={{alumno.matricula}} name="matricula" type="text" class="form-control">
 				            </div>
 				        </div>
 				        
 				        <div class="form-group">
-				            <label class="col-sm-2 control-label text-right">Mensaje:</label>
+				            <label class="col-sm-2 control-label text-right">Nombre:</label>
 				            <div class="col-sm-10">
-				            	<textarea name="mensaje" type="text" class="form-control">{{comentario.mensaje}}</textarea>
+				            	<input value={{alumno.nombre}} name="nombre" type="text" class="form-control">
+				            </div>
+				        </div>
+                        <div class="form-group">
+				            <label class="col-sm-2 control-label text-right">Carrera:</label>
+				            <div class="col-sm-10">
+				            	<input value={{alumno.carrera}} name="carrera" type="text" class="form-control">
+				            </div>
+				        </div>
+                        <div class="form-group">
+				            <label class="col-sm-2 control-label text-right">Turno:</label>
+				            <div class="col-sm-10">
+				            	<input value={{alumno.turno}} name="turno" type="text" class="form-control">
 				            </div>
 				        </div>
 

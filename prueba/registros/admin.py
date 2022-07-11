@@ -6,7 +6,7 @@ from .models import ComentarioContacto
 # Register your models here.
 class AdministrarModelo(admin.ModelAdmin):
     readonly_fields = ('created', 'updated')
-    list_display = ('matricula', 'nombre', 'carrera','turno')
+    list_display = ('id_a','matricula', 'nombre', 'carrera','turno')
     ##Daremos formato a la tabla de alumnos separando en columnas:^^
     search_fields = ('matricula','nombre','carrera','turno')
     ##Agregando un formulario de busqueda:^^
@@ -33,5 +33,4 @@ class AdministrarComentariosContacto(admin.ModelAdmin):
     date_hierarchy = 'created'
     readonly_fields = ('created', 'id')
 
-    
 admin.site.register(ComentarioContacto, AdministrarComentariosContacto)

@@ -6,6 +6,8 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Alumnos(models.Model): #Define la estructura de nuestra tabla
+    ##AgregandoClavePrimaria
+    id_a = models.AutoField(primary_key=True, verbose_name="Identificador")
     matricula = models.CharField(max_length=12, verbose_name="Mat") #texto corto
     nombre = models.TextField() #texto largo
     carrera = models.TextField()

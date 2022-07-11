@@ -37,11 +37,15 @@ urlpatterns = [
     path('comentarios',views_registros.verComentarioContacto, name="Comentario"),
     path('registrar/',views_registros.registrar,name="Registrar"),
     path('ejemplo/',views.ejemplo, name="Ejemplo"),
+
     path('eliminarComentario/<int:id>/',views_registros.eliminarComentarioContacto,name='Eliminar'),
-    path('editarComentario/<int:id>/',views_registros.verFormEditarComentario,name='Editar'),
+    path('verFormEditarComentario/<int:id>/',views_registros.verFormEditarComentario,name='Editar'),
+    path('editandoComentario/<int:id>/',views_registros.editarComentario,name='editarComentario'),
+
+    path('eliminarAlumno/<int:id_a>/',views_registros.eliminarAlumno,name='Eliminar_a'),
+    path('verFormEditarAlumno/<int:id_a>/',views_registros.verFormEditarAlumno,name='Editar_a'),
+    path('editandoAlumno/<int:id_a>/',views_registros.editarAlumno,name='editarAlumno'),
     
-
-
 ]
 
 if settings.DEBUG:

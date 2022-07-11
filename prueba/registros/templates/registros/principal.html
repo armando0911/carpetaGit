@@ -43,6 +43,8 @@
                         <th>Nombre</th>
                         <th>Carrera</th>
                         <th>Turno</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,6 +57,13 @@
                             <td class="muted">{{alumno.nombre}}</td>
                             <td class="muted">{{alumno.carrera}}</td>
                             <td class="muted">{{alumno.turno}}</td>
+                            <td class="text-center">
+                                <a href="{%url 'Editar_a' alumno.id_a%}">Editar</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="{%url 'Eliminar_a' alumno.id_a%}">Eliminar</a>
+                            </td>
+                            {% comment %} {%url 'EliminarA' comentario.id%} {% endcomment %}
                         </tr>
                     {% endfor %}
                 </tbody>
