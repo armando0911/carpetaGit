@@ -6,6 +6,7 @@ from .models import ComentarioContacto
 from .forms import AlumnosForm, ComentarioContactoForm
 from django.shortcuts import get_object_or_404
 
+import datetime
 
 # Create your views here.
 def registros(request):
@@ -103,3 +104,45 @@ def editarAlumno(request,id_a):
             return render(request,"registros/principal.html", {'alumnos':alumnos})
                     # return render(request,'registros/contacto.html')
     return render(request,'registros/formEditarAlumno.html',{'alumno': alumno}) 
+
+
+def consultar1(request):
+    alumnos=Alumnos.objects.filter(carrera="TI")
+    #all recupera todos los objetos del modelo (registros de la tabla alumnos)
+    return render(request, "registros/consultas.html",{'alumnos':alumnos})
+
+def consultar2(request):
+    alumnos=Alumnos.objects.filter(carrera="TI").filter(turno="Matutino")
+    #all recupera todos los objetos del modelo (registros de la tabla alumnos)
+    return render(request, "registros/consultas.html",{'alumnos':alumnos})
+    
+
+def consultar3(request):
+    alumnos=Alumnos.objects.all().only("matricula","nombre","carrera","turno","imagen")
+    #all recupera todos los objetos del modelo (registros de la tabla alumnos)
+    return render(request, "registros/consultas.html",{'alumnos':alumnos})
+
+def consultar4(request):
+    alumnos=Alumnos.objects.filter(turno__contains="Vesp")
+    #all recupera todos los objetos del modelo (registros de la tabla alumnos)
+    return render(request, "registros/consultas.html",{'alumnos':alumnos})
+
+def consultar5(request):
+    alumnos=Alumnos.objects.filter(nombre__in=["Juan", "Ana"])
+    #all recupera todos los objetos del modelo (registros de la tabla alumnos)
+    return render(request, "registros/consultas.html",{'alumnos':alumnos})
+
+def consultar6(request):
+    fechaInicio= datetime.date(2022,7,12)
+    fechaFin=datetime.date(2022,7,14)
+    alumnos=Alumnos.objects.filter(created__range=(fechaInicio,fechaFin))
+    #all recupera todos los objetos del modelo (registros de la tabla alumnos)
+    return render(request, "registros/consultas.html",{'alumnos':alumnos})
+
+def consultar7(request):
+    alumnos=Alumnos.objects.filter(comentario__coment__contains='ooo')
+    #all recupera todos los objetos del modelo (registros de la tabla alumnos)
+    return render(request, "registros/consultas.html",{'alumnos':alumnos})
+
+
+
