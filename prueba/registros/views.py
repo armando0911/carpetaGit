@@ -5,9 +5,12 @@ from .models import ComentarioContacto
 #Accedemos al modelo Alumnos que contiene la estructura de la tabla.
 from .forms import AlumnosForm, ComentarioContactoForm
 from django.shortcuts import get_object_or_404
+##Archivos
+from .models import Archivos
+from .forms import FormArchivos
+from django.contrib import messages
 
 import datetime
-
 # Create your views here.
 def registros(request):
     alumnos=Alumnos.objects.all()
@@ -144,5 +147,34 @@ def consultar7(request):
     #all recupera todos los objetos del modelo (registros de la tabla alumnos)
     return render(request, "registros/consultas.html",{'alumnos':alumnos})
 
+
+##Archivos-----
+
+def archivos(request):
+    if request.method == 'POST':
+        form = FormArchivos(request.POST, request.FILES)
+        if form.is_valid():
+            titulo = request.POST['titulo']
+            descripcion = request.POST['descripcion']
+            archivo = request.FILES['archivo']
+            insert = Archivos(titulo=titulo, descripcion=descripcion,archivo=archivo)
+            insert.save()
+            return render(request,"registros/archivos.html")
+        else:
+            messages.error(request,"Error al procesar el formulario")
+    else:
+        return render(request,"registros/archivos.html",{'archivo':Archivos})
+
+
+##consultasSQL
+
+def consultasSQL(request):
+    alumnos=Alumnos.objects.raw('SELECT id_a,matricula,nombre,carrera,turno,imagen FROM registros_alumnos WHERE carrera="TI" ORDER BY turno DESC')
+
+    return render(request,"registros/consultas.html",{'alumnos':alumnos})
+
+##Ejemplo de seguridad 
+def seguridad(request):
+    return render(request,"registros/seguridad.html")
 
 

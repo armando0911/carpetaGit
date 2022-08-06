@@ -55,3 +55,22 @@ class ComentarioContacto(models.Model):
         return self.mensaje
         #Indica que se mostrára el mensaje como valor en la tabla
 
+
+class Archivos(models.Model): #Define la estructura de nuestra tabla
+    ##AgregandoClavePrimaria
+    idar = models.AutoField(primary_key=True, verbose_name="id archivos")
+    titulo = models.CharField(max_length=100, verbose_name="titulo") #texto corto
+    descripcion = models.CharField(max_length=100, verbose_name="descripcion") #texto corto
+    archivo = models.FileField(upload_to="archivos", null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True) #Fecha y tiempo
+    updated = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name= "Archivo"
+        verbose_name_plural = "Archivos"
+        ordering = ["-created"]
+        #el menos indica que se ordenara del mas reciente al mas viejo
+    def __str__(self):
+        return self.titulo
+        #Indica que se mostrára el nombre como valor en la tabla
+

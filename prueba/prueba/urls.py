@@ -53,6 +53,13 @@ urlpatterns = [
     path('consulta5/',views_registros.consultar5,name='Consultas'),
     path('consulta6/',views_registros.consultar6,name='Consultas'),
     path('consulta7/',views_registros.consultar7,name='Consultas'),
+    ##Archivo>
+    path('subir',views_registros.archivos,name="Subir"),
+    ##MYSQL
+    path('consultasSQL/',views_registros.consultasSQL,name="sql"),
+    ##Seguridad ejemplo
+    path('seguridad',views_registros.seguridad,name="Seguridad"),
+
 
 ]
 
