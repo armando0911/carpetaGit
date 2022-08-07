@@ -15,6 +15,13 @@ class AdministrarModelo(admin.ModelAdmin):
     ##Agregando busqueda por fecha^^
     list_filter = ('carrera','turno')
     ##Agregando filtro lateral^^
+    list_per_page=3
+    ##agregando paginacion^^
+    list_display_links=('matricula','nombre')
+    ##se vuelven vinculos para edicion
+    list_editable=('turno',)
+    ##Permite edicion del atributo turno desde el admin^^
+    
 
     def get_readonly_fields(self, request, obj=None):
         #si pertenece al grupo de permisis "usuario"

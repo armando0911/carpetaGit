@@ -1,4 +1,4 @@
-<html>
+{% comment %} <html>
 <body>
     <form method="GET">
         Nombre:
@@ -15,5 +15,18 @@
     }
     </script>
     <!--Fin busqueda-->
+</body>
+</html> {% endcomment %}
+
+<html>
+<body>
+    
+    <form method="GET">
+        Nombre:
+        <input type="text" name="nombre"/>
+        <input type="submit" value="Buscar" />
+    </form>
+
+    <h2>Resultado: {{ nombre }}</h2>
 </body>
 </html>

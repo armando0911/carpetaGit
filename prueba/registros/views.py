@@ -174,7 +174,10 @@ def consultasSQL(request):
     return render(request,"registros/consultas.html",{'alumnos':alumnos})
 
 ##Ejemplo de seguridad 
-def seguridad(request):
-    return render(request,"registros/seguridad.html")
+# def seguridad(request):
+#     return render(request,"registros/seguridad.html")
 
+def seguridad(request, nombre=None):
+    nombre = request.GET.get('nombre')
+    return render(request,"registros/seguridad.html",{'nombre':nombre})
 
