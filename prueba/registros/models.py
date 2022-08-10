@@ -9,7 +9,7 @@ class Alumnos(models.Model): #Define la estructura de nuestra tabla
     ##AgregandoClavePrimaria
     id_a = models.AutoField(primary_key=True, verbose_name="Identificador")
     matricula = models.CharField(max_length=12, verbose_name="Mat") #texto corto
-    nombre = models.TextField() #texto largo
+    nombre = models.TextField(max_length=40) #texto largo
     carrera = models.TextField()
     turno = models.CharField(max_length=10)
     imagen = models.ImageField(null=True,upload_to="fotos",verbose_name="Fotografía")
