@@ -32,9 +32,10 @@
                                 <label for="exampleFormControlSelect2">Cursos</label>
                                 <select name="curso_u">
                                   {% for curso in cursos %}
-                                    <option name="curso_u">{{curso.nombre}}</option>
+                                    <option name="curso_u">{{curso.id}}</option>
                                   {% endfor %}
                                 </select>
+
                             </div>
                               <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Mensaje</label>

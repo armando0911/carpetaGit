@@ -52,7 +52,7 @@ class Registro(models.Model):
         verbose_name = "Registro"
         verbose_name_plural = "Registros"
         ordering = ["-created"]
-        def __str__(self):
+    def __str__(self):
             return self.mensaje_u
             #Indica que se mostrára el mensaje como valor en la tabla
 
