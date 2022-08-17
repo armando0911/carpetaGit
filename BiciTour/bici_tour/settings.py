@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'bici_tour.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'biciTour',
+        'NAME': 'bt',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

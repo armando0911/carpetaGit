@@ -21,7 +21,7 @@ class Tours(models.Model):
     costo = models.IntegerField(verbose_name='Costo')
     foto = models.ImageField(null=True, verbose_name='Foto', upload_to='fotos')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de creación')
-    update = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')
+    update = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de edición')
     
     class Meta:
         verbose_name = 'Tour'
@@ -42,7 +42,7 @@ class Clientes(models.Model):
     tour_c = models.ForeignKey(Tours,on_delete=models.CASCADE,verbose_name="Tours")#Llave Foranea
     mensaje_c = models.TextField() #Texto largo
     created =models.DateTimeField(auto_now_add=True,verbose_name="Registrado")
-    update = models.DateTimeField(auto_now=True, verbose_name='Fecha de edición')
+    update = models.DateTimeField(auto_now_add=True, verbose_name='Fecha de edición')
     class Meta:
         verbose_name = "Cliente"
         verbose_name_plural = "Clientes"
