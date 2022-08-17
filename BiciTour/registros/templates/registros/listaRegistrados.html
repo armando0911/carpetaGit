@@ -43,10 +43,12 @@
     <br>
     <br>
     <br>
-
+    
     <td class="">
-        <a class="btn btn-primary" href="{%url 'Regresar'%}">Regresar</a>
+        {% comment %} <a class="btn btn-primary" href="{%url 'Regresar' %}">Regresar</a> {% endcomment %}
+        <a class="btn btn-primary" href="javascript: history.go(-1)">Volver atrás</a>
     </td>
+    
 </center>
 
 

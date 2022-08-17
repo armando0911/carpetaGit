@@ -34,6 +34,7 @@ urlpatterns = [
     path('Registrando/',views_registros.registrarCliente,name='RegistrarCliente'),
     ##VerListaRegistrados
     path('verListaRegistro/<int:id>/',views_registros.verListaRegistro,name="VerLista"),
+    
     path('Regresando.../',views_registros.regresar,name='Regresar'),
 
     path('Listando/',views_registros.experiencias,name="VerLista"),

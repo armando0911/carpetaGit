@@ -9,7 +9,7 @@ def registros(request):
     return render(request, "registros/principal.html",{'tours': tours})
 
 def registros2(request):
-    tours=Tours.objects.all()
+    tours=Tours.objects.filter(status="1")
     return render(request, 'registros/tours.html',{'tours': tours})
 
 def registros3(request):
@@ -79,15 +79,31 @@ def verListaRegistro(request,id):
     #all recupera todos los objetos del modelo (registros de la tabla alumnos)
     return render(request, "registros/listaRegistrados.html",{'clientes':clientes})
 
+## regresar aun no funciona
 def regresar(request):
     tours=Tours.objects.all()
-    return render(request, 'registros/tours.html',{'tours': tours})
+    if Tours.status=="0":
+        tours=Tours.objects.filter(status="0")
+        return render(request, 'registros/toursRealizados.html',{'tours': tours})
+    else:
+        tours=Tours.objects.filter(status="1")
+        return render(request, 'registros/tours.html',{'tours': tours})
+
+    # tours=Tours.objects.filter(status="1")
+    # return render(request, 'registros/tours.html',{'tours': tours})
+
+    # tours=Tours.objects.filter(status=True)
+    # if Tours.status==True:
+    #     tours=Tours.objects.filter(status="1")
+    #     return render(request, 'registros/tours.html',{'tours': tours})
+    # else:
+    #     tours=Tours.objects.filter(status="0")
+    #     return render(request, 'registros/toursRealizados.html',{'tours': tours})
 
 def verToursRealizados(request):
-    tours=Tours.objects.filter(status="0")
-    return render(request, 'registros/toursRealizados.html',{'tours': tours})
-
-    
+     tours=Tours.objects.filter(status="0")
+     return render(request, 'registros/toursRealizados.html',{'tours': tours})
+      
 
 # def editarAlumno(request,id_a):
 #     alumno = get_object_or_404(Alumnos,id_a=id_a)
